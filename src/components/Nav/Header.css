@@ -1,0 +1,11 @@
+.header-wrapper {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding: 20px 0px;
+}
+
+.header-wrapper a {
+    text-decoration: none;
+    color: #fff;
+}

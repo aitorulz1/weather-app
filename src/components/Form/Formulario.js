@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './Formulario.css';
+import logo from '../../assets/images/logo.png'
 
-export default function Formulario({guardarPickbusqueda, guardarConsultar}) {
+export default function Formulario({guardarPickbusqueda, guardarConsultar, guardarMostrar}) {
 
     const [ busqueda, guardarBusqueda ] = useState({
         ciudad: '',
@@ -36,49 +38,77 @@ export default function Formulario({guardarPickbusqueda, guardarConsultar}) {
             pais: ''
         })
 
+        guardarMostrar(false)
 
     }
 
     return (
-        <form
+
+    <div className="form-background">
+
+        <form className="login"
             onSubmit = {onSubmit}
         >
 
-            { error ? <p className="">'Debes de insertar ambos valores'</p> : null }
+                <div className="form-container">
 
-            <label>Ciudad: </label>
-            <input 
-                type="text"
-                placeholder="ciudad"
-                name='ciudad'
-                id='ciudad'
-                value= {ciudad}
-                onChange={handleChange}
-            />
+                    <div className="logo">
+                        <img src={logo} />
+                    </div>
 
+                    { error ? <p className="danger">'Debes de insertar ambos valores'</p> : null }
 
-            <label>País: </label>
-            <select
-                name='pais'
-                id='pais'
-                value={pais}
-                onChange={handleChange}
-            >
-                <option value="">-- Seleccione un País --</option>
-                <option value="US">Estados Unidos</option>
-                <option value="MX">México</option>
-                <option value="AR">Argentina</option>
-                <option value="CO">Colombia</option>
-                <option value="CR">Costa Rica</option>
-                <option value="ES">España</option>
-                <option value="PE">Perú</option>
-            </select>
+                    <div className="log-form-group">
 
-            <input 
-                type='submit'
-                value='Buscar'
-            />
+                        <label>País: </label>
+                        <select
+                            name='pais'
+                            id='pais'
+                            value={pais}
+                            onChange={handleChange}
+                            className='weather'
+                        >
+                            <option value="">-- Seleccione un País --</option>
+                            <option value="US">Estados Unidos</option>
+                            <option value="MX">México</option>
+                            <option value="AR">Argentina</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CR">Costa Rica</option>
+                            <option value="ES">España</option>
+                            <option value="PE">Perú</option>
+                        </select>
+
+                    </div>
+
+                    <div className="log-form-group">
+
+                    <label>Ciudad: </label>
+                    <input 
+                        type="text"
+                        placeholder="ciudad"
+                        className='weather'
+                        name='ciudad'
+                        id='ciudad'
+                        value= {ciudad}
+                        onChange={handleChange}
+                    />
+
+                    </div>
+
+                    <div className="log-form-group">
+
+                    <input 
+                        type='submit'
+                        value='Buscar'
+                        className='login-button'
+                    />
+                    </div>
+
+                </div>
             
         </form>
+
+    </div>
+
     )
 }

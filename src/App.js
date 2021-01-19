@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { BrowserRouter as  Switch, Route, Link } from 'react-router-dom';
 
 import Header from './components/Nav/Header';
 import Form from './components/Form/Formulario';
@@ -14,6 +15,8 @@ function App() {
 
     const { ciudad, pais } = pickbusqueda;
 
+    const [ mostrar, guardarMostrar ] = useState(true);
+
     const [ consultar, guardarConsultar ] = useState(false);
 
     const [ resultado, guardarResultado ] = useState({});
@@ -24,8 +27,7 @@ function App() {
       if(consultar) {
 
         const ApiKey = 'da911c5da8ac8830a326fa164a4cd030';
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${ApiKey}`;
-  
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${ApiKey}`; 
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         
@@ -38,20 +40,25 @@ function App() {
   }, [consultar])
 
   return (
-    <div>
-      <Header
-        titulo="Check The Weather"
-      />
+    <div className="wrapper">
 
-      <Form 
-        guardarPickbusqueda={ guardarPickbusqueda}
+      <Header
+        titulo={!consultar ? "Check The Weather" : 'Back to Search'}
+        guardarMostrar={guardarMostrar}
         guardarConsultar={guardarConsultar}
       />
 
+    {mostrar ?
+      <Form 
+        guardarPickbusqueda={ guardarPickbusqueda}
+        guardarConsultar={guardarConsultar}
+        guardarMostrar= {guardarMostrar}
+      />
+      :
       <Data
         resultado={resultado}
       />
-
+    }
     </div>
   );
 }
