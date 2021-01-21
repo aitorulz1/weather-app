@@ -50,6 +50,10 @@ export const theWeather = (weather) => {
         wIcon = '50d.png'
     } if  (clima === 'Mist' && isDay === false) {
         wIcon = '50n.png'
+    }  if (clima === 'Fog' && isDay) {
+        wIcon = '50d.png'
+    } if  (clima === 'Fog' && isDay === false) {
+        wIcon = '50n.png'
     }
 
     return wIcon;
@@ -69,41 +73,51 @@ export const theSkyColor = (weather) => {
     } if  (clima === 'Clear' && isDay === false) {
         sColor = '#00283e'
     } if (clima === 'Clouds' && isDay) {
-        sColor = '#'
+        sColor = '#e6ecf1'
     } if  (clima === 'Clouds' && isDay === false) {
-        sColor = '#'
+        sColor = '#56585a'
     } if (clima === 'Scattered Clouds' && isDay) {
-        sColor = '#'
+        sColor = '#4a535d'
     } if  (clima === 'Scattered Clouds' && isDay === false) {
-        sColor = '#'
+        sColor = '#bddaea'
     } if (clima === 'Broken Clouds' && isDay) {
-        sColor = '#'
+        sColor = '#4a535d'
     } if  (clima === 'Broken Clouds' && isDay === false) {
-        sColor = '#'
+        sColor = '#bddaea'
     } if (clima === 'Drizzle' && isDay) {
-        sColor = '#'
+        sColor = '#7aacc7'
     } if  (clima === 'Drizzle' && isDay === false) {
-        sColor = '#'
+        sColor = '#1f2c33'
     } if (clima === 'Rain' && isDay) {
-        sColor = '#'
+        sColor = '#42738c'
     } if  (clima === 'Rain' && isDay === false) {
-        sColor = '#'
+        sColor = '#15252d'
     } if (clima === 'Thunderstorm' && isDay) {
-        sColor = '#'
+        sColor = '#286280'
     } if  (clima === 'Thunderstorm' && isDay === false) {
-        sColor = '#'
+        sColor = '#153546'
     } if (clima === 'Snow' && isDay) {
-        sColor = '#'
+        sColor = '#abbac1'
     } if  (clima === 'Snow' && isDay === false) {
-        sColor = '#'
+        sColor = '#373b3e'
     } if (clima === 'Mist' && isDay) {
-        sColor = '#'
+        sColor = '#97a5ab'
     } if  (clima === 'Mist' && isDay === false) {
-        sColor = '#'
+        sColor = '#242829'
     }
 
     return sColor;
 
+}
+
+
+// Font color
+
+export const theFontColor = () => {
+
+    let fColor;
+
+    return isDay ? fColor='#000' : fColor='#fff';
 }
 
 

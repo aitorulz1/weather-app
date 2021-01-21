@@ -1,6 +1,8 @@
 import React from 'react';
 import './Data.css';
-import { theWeather, theSkyColor } from '../../middleware/helper';
+import { theWeather, theSkyColor, theFontColor, pickbusqueda } from '../../middleware/helper';
+
+import Daily from './Daily'
 
 
 
@@ -9,7 +11,9 @@ export default function Data({resultado}) {
 
     //clouds, coord, main, sys, name, dt, weather, wind 
 
+
     const { name, main, coord, weather, wind, sys } = resultado;
+
 
 
     
@@ -22,9 +26,17 @@ export default function Data({resultado}) {
 
     const skyColor =  theSkyColor(weather)
 
+    const fontColor = theFontColor()
 
 
-    console.log(resultado)
+    // Capital Letter for weather.description
+    const weatherDescription = weather[0].description;
+
+    const capital = weatherDescription[0].toUpperCase() + weatherDescription.slice(1);
+
+    
+
+
 
 
 
@@ -32,7 +44,7 @@ export default function Data({resultado}) {
 
     
     return (
-        <div className="data-wrapper" style={{background: `${skyColor}`}}>
+        <div className="data-wrapper" style={{background: `${skyColor}`, color: `${fontColor}`}}>
             
             <div className="data-container">
 
@@ -43,15 +55,26 @@ export default function Data({resultado}) {
                     <div className="weather-main">
                         <img className="weather-main" src={`images/icons/${climaIcon}`}/>
                     </div>
+
+                    <div className="description">
+                        <div className="main">
+                            {weather[0].main} |
+                        </div>
+                        <div className="des">
+                            {capital}
+                        </div>
+
+                    </div>
                     
                     <div className="">{coord.lat}, {coord.lon}</div>
-                    <div className="">{weather[0].description},{weather[0].main}</div>
                     <div className="">{wind.speed},  {wind.deg}</div>
                     <div className="">{sys.sunrise}</div>
 
 
-            </div>
+            
+            <Daily />
 
+            </div>
         </div>
     )
 }

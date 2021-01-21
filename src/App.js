@@ -4,6 +4,8 @@ import { BrowserRouter as  Switch, Route, Link } from 'react-router-dom';
 import Header from './components/Nav/Header';
 import Form from './components/Form/Formulario';
 import Data from './components/Results/Data';
+import Daily from './components/Results/Daily';
+
 
 
 function App() {
@@ -14,6 +16,10 @@ function App() {
     })
 
     const { ciudad, pais } = pickbusqueda;
+
+    console.log(ciudad)
+
+    const city = pickbusqueda.ciudad;
 
     const [ mostrar, guardarMostrar ] = useState(true);
 
@@ -57,8 +63,15 @@ function App() {
       :
       <Data
         resultado={resultado}
+        pickbusqueda= {pickbusqueda}
       />
     }
+
+    <div className="hide">
+    <Daily
+      city={city}
+    />
+    </div>
     </div>
   );
 }

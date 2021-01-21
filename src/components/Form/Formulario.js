@@ -38,7 +38,8 @@ export default function Formulario({guardarPickbusqueda, guardarConsultar, guard
             pais: ''
         })
 
-        guardarMostrar(false)
+        guardarMostrar(false);
+
 
     }
 
