@@ -7,20 +7,22 @@ import Daily from './Daily'
 
 
 
-export default function Data({resultado}) {
+export default function Data({resultado, city}) {
 
     //clouds, coord, main, sys, name, dt, weather, wind 
 
 
-    const { name, main, coord, weather, wind, sys } = resultado;
+    const { name, main, coord, weather, wind, sys, dt } = resultado;
 
-
+    console.log(resultado)
 
     
     if(!main) return null
     
     // Calcular la temperatura Kelvin a Celsius
     const temp = parseInt((main.temp) - 273.15);
+    const tempMax = parseInt((main.temp_max) - 273.15);
+    const tempMin = parseInt((main.temp_min) - 273.15);
 
     const climaIcon = theWeather(weather);
 
@@ -34,9 +36,24 @@ export default function Data({resultado}) {
 
     const capital = weatherDescription[0].toUpperCase() + weatherDescription.slice(1);
 
+
+    // Converting dt to time
+    let unix_timestamp = dt;
+
+    var date = new Date(unix_timestamp * 1000);
+
+    var hours = date.getHours();
+
+    var minutes = "0" + date.getMinutes();
+
+    var seconds = "0" + date.getSeconds();
+
+    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+    console.log(Date.now().getDay());
     
 
-
+    
 
 
 
@@ -66,13 +83,17 @@ export default function Data({resultado}) {
 
                     </div>
                     
-                    <div className="">{coord.lat}, {coord.lon}</div>
-                    <div className="">{wind.speed},  {wind.deg}</div>
+
+                    <div className="">{tempMax}º</div>
+                    <div className="">{tempMin}º</div>
                     <div className="">{sys.sunrise}</div>
 
 
             
-            <Daily />
+            <Daily 
+                city= {city}
+                resultado={resultado}
+            />
 
             </div>
         </div>

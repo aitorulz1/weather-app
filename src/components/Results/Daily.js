@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
 import DailyList from './DailyList';
+import './Daily.css';
+
+import ItemsCarousel from 'react-items-carousel';
 
 
 
 
 export default function Daily(city) {
     
+    const [activeItemIndex, setActiveItemIndex] = useState(0);
 
-    const [ listado, guardarListado ] = useState([])
+    const [ listado, guardarListado ] = useState([]);
 
-    const list = listado.list
+    const list = listado.list;
 
 
     useEffect(() => {
@@ -28,13 +32,24 @@ export default function Daily(city) {
 
  
     return (
-        <div>
+        <div className="CategoriesContainer">
+            <ItemsCarousel
+                requestToChangeActive={setActiveItemIndex}
+                activeItemIndex={activeItemIndex}
+                numberOfCards={5}
+                showSlither='true'
+                leftChevron={<button className="arrow" >{'<'}</button>}
+                rightChevron={<button className="arrow" >{'>'}</button>}
+                outsideChevron
+                chevronWidth={40}
+            >
             {!list ? null : list.map((listi) => (
                 <DailyList
                     key={listi.id}
                     listi={listi}
                 />
             ))}
+            </ItemsCarousel>
         </div>
     )
 }

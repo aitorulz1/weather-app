@@ -17,8 +17,6 @@ function App() {
 
     const { ciudad, pais } = pickbusqueda;
 
-    console.log(ciudad)
-
     const city = pickbusqueda.ciudad;
 
     const [ mostrar, guardarMostrar ] = useState(true);
@@ -64,14 +62,10 @@ function App() {
       <Data
         resultado={resultado}
         pickbusqueda= {pickbusqueda}
+        city={city}
       />
     }
 
-    <div className="hide">
-    <Daily
-      city={city}
-    />
-    </div>
     </div>
   );
 }
