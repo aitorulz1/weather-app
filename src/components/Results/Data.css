@@ -1,7 +1,7 @@
 .data-wrapper {
     position: relative;
     width: 100%;
-    display: table;
+
     z-index: -1;
 }
 
@@ -18,7 +18,7 @@ name
 .name {
     text-align: center;
     padding: 30px 0px;
-    font-size: 30px;
+    font-size: 36px;
 }
 
 
@@ -28,8 +28,8 @@ temp
 
 .temp-med {
     text-align: center;
-    padding: 30px 0px 0px 0px;
-    font-size: 50px;  
+    padding: 0px 0px 30px 0px;
+    font-size: 50px;
     margin-left: 15px;
 }
 
@@ -77,4 +77,49 @@ description
     float: left;
     text-align: left;
     padding-left: 10px;
+}
+
+
+
+/*---------
+Max & Min
+---------*/
+
+.average-container {
+    position: relative;
+    display: table;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 50px;
+    border-bottom: 1px solid #e6ecf1;
+    box-shadow: 0px 0px 30px #bccacc;
+}
+
+.dayof {
+    float: left;
+    width: 50%;
+    padding-top: 4px;
+    font-size: 18px;
+}
+
+.max-min-container {
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+.max{
+    float: right;
+    padding-right: 20px;
+    font-size: 24px;
+    font-family: fantasy;
+}
+
+.min{
+    float: right;
+    font-size: 20px;
+    font-family: inherit;
 }

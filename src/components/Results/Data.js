@@ -1,6 +1,6 @@
 import React from 'react';
 import './Data.css';
-import { theWeather, theSkyColor, theFontColor, pickbusqueda } from '../../middleware/helper';
+import { theWeather, theSkyColor, theFontColor, pickbusqueda, theMonthDay, theWeekDay } from '../../middleware/helper';
 
 import Daily from './Daily'
 
@@ -37,9 +37,10 @@ export default function Data({resultado, city}) {
     const capital = weatherDescription[0].toUpperCase() + weatherDescription.slice(1);
 
 
-    // Converting dt to time
-    let unix_timestamp = dt;
+    // Converting dt to time  (formattedTime)
 
+    let unix_timestamp = dt;
+    
     var date = new Date(unix_timestamp * 1000);
 
     var hours = date.getHours();
@@ -50,9 +51,22 @@ export default function Data({resultado, city}) {
 
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-    console.log(Date.now().getDay());
-    
+    const theTime = formattedTime;
 
+
+    // Obtener día de la semana
+
+    const weekDay = theWeekDay();
+
+    const weekDayCapital = weekDay[0].toUpperCase() + weekDay.slice(1);
+
+
+
+    // Obtener día del mes
+
+    const monthDay = theMonthDay()
+
+ 
     
 
 
@@ -66,8 +80,10 @@ export default function Data({resultado, city}) {
             <div className="data-container">
 
 
-                    <div className="temp-med">{temp}º</div>
                     <div className="name">{name}</div>
+                    <div className="temp-med">{temp}º</div>
+
+                   
                     
                     <div className="weather-main">
                         <img className="weather-main" src={`images/icons/${climaIcon}`}/>
@@ -83,16 +99,26 @@ export default function Data({resultado, city}) {
 
                     </div>
                     
+                    <div className="average-container">
 
-                    <div className="">{tempMax}º</div>
-                    <div className="">{tempMin}º</div>
-                    <div className="">{sys.sunrise}</div>
+                        <div className="dayof">Hoy {weekDayCapital}</div>
+
+                        <div className="max-min-container">
+
+                           <div className="min">{tempMin}º</div>  <div className="max">{tempMax}º</div>
+                           
+
+                        </div>
+
+                    </div>
+                    
 
 
             
             <Daily 
                 city= {city}
                 resultado={resultado}
+                weekDayCapital={ weekDayCapital}
             />
 
             </div>

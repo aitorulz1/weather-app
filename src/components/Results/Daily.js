@@ -3,7 +3,12 @@ import React, { useEffect, useState } from 'react';
 import DailyList from './DailyList';
 import './Daily.css';
 
+
+
 import ItemsCarousel from 'react-items-carousel';
+
+
+// Carousel
 
 
 
@@ -15,6 +20,7 @@ export default function Daily(city) {
     const [ listado, guardarListado ] = useState([]);
 
     const list = listado.list;
+
 
 
     useEffect(() => {

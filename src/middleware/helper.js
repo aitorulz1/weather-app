@@ -121,3 +121,61 @@ export const theFontColor = () => {
 }
 
 
+
+
+    
+
+  
+
+
+
+    // Obtener fecha del mes  (dateString)
+
+    export const theMonthDay = () => {
+
+    const currentDate = new Date();
+
+    const currentDayOfMonth = currentDate.getDate();
+    const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+    const currentYear = currentDate.getFullYear();
+
+    const dateString = currentYear + "-" + (currentMonth + 1) + "-" +  currentDayOfMonth;
+
+    return dateString;
+
+    }
+
+
+    // Obtener día de la semana  (nombreDia)
+
+    
+    export const theWeekDay = () => {
+
+    const currentDate = new Date();
+
+    const currentDayOfMonth = currentDate.getDate();
+    const currentMonth = currentDate.getMonth(); // Be careful! January is 0, not 1
+    const currentYear = currentDate.getFullYear();
+    const dateString = currentYear + "-" + (currentMonth + 1) + "-" +  currentDayOfMonth;
+
+    const fechaComoCadena = dateString; // día lunes
+    const dias = [
+    'domingo',
+    'lunes',
+    'martes',
+    'miércoles',
+    'jueves',
+    'viernes',
+    'sábado',
+    'domingo',
+    ];
+    const numeroDia = new Date(fechaComoCadena).getDay();
+    const nombreDia = dias[numeroDia];
+
+    return nombreDia; 
+    
+}
+
+
+
+      

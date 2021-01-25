@@ -1,10 +1,10 @@
 import React from 'react'
-import { theWeather, theSkyColor, theFontColor, pickbusqueda } from '../../middleware/helper';
+import { theWeather, theSkyColor, theFontColor, pickbusqueda, carousel } from '../../middleware/helper';
 
 import './DailyList.css';
-import wind from '../../assets/images/wind.png'
 
-export default function DailyList(listi, city) {
+
+export default function DailyList(listi, city,  weekDayCapital) {
 
     const {name, main, coord, weather, wind, sys } = listi.listi;
 
@@ -31,9 +31,8 @@ export default function DailyList(listi, city) {
 
     //Para pintar el día de la semana a partir de un dato que nos da listi.listi
     
-    //const fechaComoCadena = "2020-03-09 23:37:22"; // día lunes
-    //const numeroDia = new Date(fechaComoCadena).getDay();
-    //console.log("Número de día de la semana: ", numeroDia); 
+
+
 
 
 
@@ -46,8 +45,8 @@ export default function DailyList(listi, city) {
 
 
 
-                    <div className="temp-med">{temp}º</div>
-                    <div className="name">{name}</div>
+                    <div className="temp-med-single">{temp}º</div>
+                    <div className="name">{ weekDayCapital}</div>
                     
                     <div className="weather-main">
                         <img className="weather-main" src={`images/icons/${climaIcon}`}/>
@@ -62,8 +61,10 @@ export default function DailyList(listi, city) {
                         </div>
 
                         <div className="wind-container">
-                        <img src={wind} />
-                            {wind.speed}
+                            <img src='images/wind.png' />
+                            <div className="windy">
+                                {wind.speed}
+                            </div>
                         </div>
 
               

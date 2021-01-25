@@ -1,7 +1,6 @@
 .data-single-wrapper {
     position: relative;
     width: 100%;
-    display: table;
     z-index: -1;
 }
 
@@ -20,11 +19,71 @@
 }
 
 
-.ephvui {
+/* Card */
+
+
+.kpHolq {
+    width: 86.9375px;
+    min-width: 182px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px 5px;
+}
+
+.ephvui, .ehNXgp, .ehNXgp, .ehNXgp {
     width: 19%;
+    min-width: 192px !important;
     box-shadow: 0px 0px 30px #bccacc;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding: 0% 0.5%;
+}
+
+
+
+
+
+.rfMYF {
+    width: 192px;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px 5px;
+}
+
+/* Temp Med Single*/
+
+.temp-med-single {
+    text-align: center;
+    padding: 30px 0px 0px 0px;
+    font-size: 50px;
+    margin-left: 15px;
+}
+
+
+/* Wind */
+
+.wind-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.wind-container img {
+    display: inline-flex;
+    width: 35px;
+}
+
+.windy {
+    display: inline-flex;
+    font-size: 25px;
+    font-family: fantasy;
+    padding-left: 10px;
 }
