@@ -38,16 +38,16 @@ export default function Daily(city) {
 
  
     return (
-        <div className="CategoriesContainer">
+        <div className="CategoriesContainer" >
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
                 numberOfCards={5}
-                showSlither='true'
                 leftChevron={<button className="arrow" >{'<'}</button>}
                 rightChevron={<button className="arrow" >{'>'}</button>}
                 outsideChevron
                 chevronWidth={40}
+                slidesToScroll={5}
             >
             {!list ? null : list.map((listi) => (
                 <DailyList

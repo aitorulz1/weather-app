@@ -125,10 +125,6 @@ export const theFontColor = () => {
 
     
 
-  
-
-
-
     // Obtener fecha del mes  (dateString)
 
     export const theMonthDay = () => {
@@ -176,6 +172,9 @@ export const theFontColor = () => {
     
 }
 
+
+
+   
 
 
       

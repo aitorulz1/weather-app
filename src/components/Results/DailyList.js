@@ -1,14 +1,14 @@
 import React from 'react'
-import { theWeather, theSkyColor, theFontColor, pickbusqueda, carousel } from '../../middleware/helper';
+import { theWeather, theSkyColor, theFontColor, pickbusqueda, theWeekDay } from '../../middleware/helper';
 
 import './DailyList.css';
 
 
-export default function DailyList(listi, city,  weekDayCapital) {
+export default function DailyList(listi, city  ) {
 
-    const {name, main, coord, weather, wind, sys } = listi.listi;
+    const {name, main, coord, weather, wind, sys, dt_txt } = listi.listi;
 
-    //console.log(listi.listi)
+    console.log(listi.listi)
   
 
     if(!main) return null
@@ -29,8 +29,31 @@ export default function DailyList(listi, city,  weekDayCapital) {
     const capital = weatherDescription[0].toUpperCase() + weatherDescription.slice(1);
 
 
-    //Para pintar el día de la semana a partir de un dato que nos da listi.listi
     
+    // Obtener día de la semana
+
+    const weekDay =theWeekDay();
+
+    const weekDayCapital = weekDay[0].toUpperCase() + weekDay.slice(1);
+
+
+    // Date
+
+    const date = dt_txt.slice(0, 10);
+
+    
+
+
+    var dia = date.slice(8, 11);
+    var mes = date.slice(5, 7);
+    var anio = date.slice(0, 4);
+
+    var timeDay = dt_txt.slice(11, 16)
+
+    var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+    var dt = new Date(mes+' '+dia+', '+anio);
+    const dayOfWeek = dias[dt.getUTCDay()-1];
+
 
 
 
@@ -40,36 +63,30 @@ export default function DailyList(listi, city,  weekDayCapital) {
     return (
 
 
-        <div className="data-single-wrapper" style={{background: `${skyColor}`, color: `${fontColor}`}}>
-            
+        <div className="data-single-wrapper" style={{background: `${skyColor}`, color: `${fontColor}`, width:192}}>
 
-
-
-                    <div className="temp-med-single">{temp}º</div>
-                    <div className="name">{ weekDayCapital}</div>
-                    
-                    <div className="weather-main">
-                        <img className="weather-main" src={`images/icons/${climaIcon}`}/>
-                    </div>
-
+                <div className="temp-med-single">{temp}º</div>
+                <div className="name-day">{dayOfWeek} | {dia}</div>
+                <div className="time-day">{timeDay}</div>
+                        
+                <div className="weather-main">
+                    <img className="weather-main" src={`images/icons/${climaIcon}`}/>
+                </div>
                   
-                        <div className="main-single">
-                            {weather[0].main}
-                        </div>
-                        <div className="des-single">
-                            {capital}
-                        </div>
+                <div className="main-single">
+                    {weather[0].main}
+                </div>
 
-                        <div className="wind-container">
-                            <img src='images/wind.png' />
-                            <div className="windy">
-                                {wind.speed}
-                            </div>
+                <div className="des-single">
+                    {capital}
+                </div>
+
+                <div className="wind-container">
+                    <img src='images/wind.png' />
+                        <div className="windy">
+                            {wind.speed}
                         </div>
-
-              
-                    
-
+                </div>
 
         </div>
                 

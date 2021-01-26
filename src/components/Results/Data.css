@@ -102,7 +102,9 @@ Max & Min
     float: left;
     width: 50%;
     padding-top: 4px;
-    font-size: 18px;
+    font-size: 18px;    
+    font-family: fantasy;
+
 }
 
 .max-min-container {
