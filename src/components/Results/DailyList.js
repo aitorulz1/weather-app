@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { theWeather, theSkyColor, theFontColor, pickbusqueda, theWeekDay } from '../../middleware/helper';
 
 import './DailyList.css';
@@ -7,9 +7,7 @@ import './DailyList.css';
 export default function DailyList(listi, city  ) {
 
     const {name, main, coord, weather, wind, sys, dt_txt } = listi.listi;
-
-    console.log(listi.listi)
-  
+   
 
     if(!main) return null
     
@@ -50,9 +48,19 @@ export default function DailyList(listi, city  ) {
 
     var timeDay = dt_txt.slice(11, 16)
 
-    var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+    // Obtengo hora entera '12:00:00'
+    var timeDayFull = dt_txt.slice(11, 19)
+
+    var dias=["mie", "jue", "vie", "sab", "dom", "lun", "mar", "mie"];
     var dt = new Date(mes+' '+dia+', '+anio);
+
+    // Obtengo el día de la seman (lunes, martes, miercoles,...)
     const dayOfWeek = dias[dt.getUTCDay()-1];
+
+
+
+   
+
 
 
 
@@ -62,34 +70,40 @@ export default function DailyList(listi, city  ) {
 
     return (
 
+             
+            
+                <div className="data-single-wrapper" style={{background: `${skyColor}`, color: `${fontColor}`, width:192}}>
 
-        <div className="data-single-wrapper" style={{background: `${skyColor}`, color: `${fontColor}`, width:192}}>
+                    <div className="temp-med-single">{temp}º</div>
+                    <div className="name-day">{dayOfWeek} | {dia}</div>
+                    <div className="time-day">{timeDay}</div>
+                            
+                    <div className="weather-main">
+                        <img className="weather-main" src={`images/icons/${climaIcon}`}/>
+                    </div>
+                    
+                    <div className="main-single">
+                        {weather[0].main}
+                    </div>
 
-                <div className="temp-med-single">{temp}º</div>
-                <div className="name-day">{dayOfWeek} | {dia}</div>
-                <div className="time-day">{timeDay}</div>
-                        
-                <div className="weather-main">
-                    <img className="weather-main" src={`images/icons/${climaIcon}`}/>
+                    <div className="des-single">
+                        {capital}
+                    </div>
+
+                    <div className="wind-container">
+                        <img src='images/wind.png' />
+                            <div className="windy">
+                                {wind.speed}
+                            </div>
+                    </div>
+
+
                 </div>
-                  
-                <div className="main-single">
-                    {weather[0].main}
-                </div>
 
-                <div className="des-single">
-                    {capital}
-                </div>
-
-                <div className="wind-container">
-                    <img src='images/wind.png' />
-                        <div className="windy">
-                            {wind.speed}
-                        </div>
-                </div>
-
-        </div>
+       
                 
+      
+            
 
 
 

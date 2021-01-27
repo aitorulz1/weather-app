@@ -8,6 +8,8 @@ import './Daily.css';
 import ItemsCarousel from 'react-items-carousel';
 
 
+
+
 // Carousel
 
 
@@ -43,8 +45,8 @@ export default function Daily(city) {
                 requestToChangeActive={setActiveItemIndex}
                 activeItemIndex={activeItemIndex}
                 numberOfCards={5}
-                leftChevron={<button className="arrow" >{'<'}</button>}
-                rightChevron={<button className="arrow" >{'>'}</button>}
+                //leftChevron={<button className="arrow" >{'<'}</button>}
+                //rightChevron={<button className="arrow" >{'>'}</button>}
                 outsideChevron
                 chevronWidth={40}
                 slidesToScroll={5}
