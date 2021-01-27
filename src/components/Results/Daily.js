@@ -40,6 +40,7 @@ export default function Daily(city) {
 
  
     return (
+    <div>
         <div className="CategoriesContainer" >
             <ItemsCarousel
                 requestToChangeActive={setActiveItemIndex}
@@ -59,5 +60,6 @@ export default function Daily(city) {
             ))}
             </ItemsCarousel>
         </div>
+    </div>
     )
 }
