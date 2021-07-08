@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import PropTypes from 'prop-types';
 
 
 export default function Header({titulo, guardarMostrar, guardarConsultar}) {
@@ -16,4 +17,9 @@ export default function Header({titulo, guardarMostrar, guardarConsultar}) {
         </nav>
     </div>
     )
+}
+
+Header.PropTypes = {
+    titulo: PropTypes.string,
+    guardarMostrar: PropTypes.func.isRequired
 }

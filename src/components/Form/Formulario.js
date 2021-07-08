@@ -1,29 +1,30 @@
 import React, { useState } from 'react';
 import './Formulario.css';
-import logo from '../../assets/images/logo.png'
+import logo from '../../assets/images/logo.png';
+import PropTypes from 'prop-types';
 
-export default function Formulario({guardarPickbusqueda, guardarConsultar, guardarMostrar}) {
+export default function Formulario({ guardarPickbusqueda, guardarConsultar, guardarMostrar }) {
 
-    const [ busqueda, guardarBusqueda ] = useState({
+    const [busqueda, guardarBusqueda] = useState({
         ciudad: '',
         pais: ''
     })
-  
-      const { ciudad, pais } = busqueda;
 
-    const [ error, guardarError ] = useState(false);
+    const { ciudad, pais } = busqueda;
+
+    const [error, guardarError] = useState(false);
 
     const handleChange = e => {
         guardarBusqueda({
             ...busqueda,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         });
     }
 
     const onSubmit = e => {
         e.preventDefault();
 
-        if( ciudad.trim() === '' || pais.trim() === '') {
+        if (ciudad.trim() === '' || pais.trim() === '') {
             guardarError(true);
             return;
         }
@@ -39,17 +40,15 @@ export default function Formulario({guardarPickbusqueda, guardarConsultar, guard
         })
 
         guardarMostrar(false);
-
-
     }
 
     return (
 
-    <div className="form-background">
+        <div className="form-background">
 
-        <form className="login"
-            onSubmit = {onSubmit}
-        >
+            <form className="login"
+                onSubmit={onSubmit}
+            >
 
                 <div className="form-container">
 
@@ -57,7 +56,7 @@ export default function Formulario({guardarPickbusqueda, guardarConsultar, guard
                         <img src={logo} />
                     </div>
 
-                    { error ? <p className="danger">'Debes de insertar ambos valores'</p> : null }
+                    {error ? <p className="danger">'Debes de insertar ambos valores'</p> : null}
 
                     <div className="log-form-group">
 
@@ -83,33 +82,39 @@ export default function Formulario({guardarPickbusqueda, guardarConsultar, guard
 
                     <div className="log-form-group">
 
-                    <label>Ciudad: </label>
-                    <input 
-                        type="text"
-                        placeholder="ciudad"
-                        className='weather'
-                        name='ciudad'
-                        id='ciudad'
-                        value= {ciudad}
-                        onChange={handleChange}
-                    />
+                        <label>Ciudad: </label>
+                        <input
+                            type="text"
+                            placeholder="ciudad"
+                            className='weather'
+                            name='ciudad'
+                            id='ciudad'
+                            value={ciudad}
+                            onChange={handleChange}
+                        />
 
                     </div>
 
                     <div className="log-form-group">
 
-                    <input 
-                        type='submit'
-                        value='Buscar'
-                        className='login-button'
-                    />
+                        <input
+                            type='submit'
+                            value='Buscar'
+                            className='login-button'
+                        />
                     </div>
 
                 </div>
-            
-        </form>
 
-    </div>
+            </form>
+
+        </div>
 
     )
+}
+
+Formulario.PropTypes = {
+    guardarPickbusqueda: PropTypes.func.isRequired,
+    guardarConsultar: PropTypes.func.isRequired,
+    guardarMostrar: PropTypes.func.isRequired,
 }
