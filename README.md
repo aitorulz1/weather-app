@@ -37,4 +37,7 @@ As simple as it seems. Just select a country and the type the city you want (bel
 
 
 <img src="src/assets/images/screenshots/weather.jpg" width="300">
+<img src="src/assets/images/screenshots/madrid.jpg" width="300">
+<img src="src/assets/images/screenshots/queretaro.jpg" width="300">
+<img src="src/assets/images/screenshots/california.jpg" width="300">
 
