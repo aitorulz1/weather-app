@@ -1,4 +1,5 @@
-# Weather APP <img src="assetes/images/logo.png" width="100">
+# Weather APP <img src="assets/images/logo.png" width="100">
+![](images/logo.png)
 
 
 # Introduction
