@@ -59,15 +59,6 @@ export default function DailyList(listi, city  ) {
 
 
 
-   
-
-
-
-
-
-
-
-
     return (
 
              

@@ -4,7 +4,6 @@ import DailyList from './DailyList';
 import './Daily.css';
 
 
-
 import ItemsCarousel from 'react-items-carousel';
 
 
