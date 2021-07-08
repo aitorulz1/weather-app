@@ -1,5 +1,5 @@
 # Weather APP <img src="assets/images/logo.png" width="100">
-![SUN!](assets/images/logo.png)
+![SUN!](src/assets/images/logo.png)
 
 # Introduction
 
