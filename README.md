@@ -1,4 +1,4 @@
-# Weather APP <img src="src/assets/images/logo.png" width="100">
+# Weather APP <img src="src/assets/images/logo.png" width="30">
 
 
 # Introduction
@@ -33,5 +33,8 @@ $ npm start
 As simple as it seems. Just select a country and the type the city you want (belonging to that country) and press start. Immediatly will appear the weather for the next 7 days!
 
 
+# Screenshots
 
+
+<img src="src/assets/images/screenshots/weather.jpg" width="300">
 
